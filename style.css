@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+footer{
+    background: #7c747c;
+    padding: 30px;
+    color: white;
+    text-align: center;
+  
+}
+.btn-primary{
+    background: transparent;
+    color: black;
+    margin-left: 45%;
+    margin-top: 20px;
+}
+form{
+    margin: auto;
+   }
+   .image_pp{
+    width: 80%;
+    margin: auto;
+ }
+ .image_pp img{
+    width: 100%;
+ }
+ nav{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    font-size: 1.2em;
+    background-color: #b0988b;
+ }
+ nav li{
+    color: black;
+    list-style-type: none;
+ }
+ nav a{
+    color: purple;
+    text-decoration: none;
+ }
+ nav a:hover{
+     text-decoration: none;
+     color: orange;
+ }
