@@ -1,8 +1,11 @@
+
 <?php
 require('nav.php');
 ?>
+<div class="bg_weight">
+   
     <h1>Calculer son indice de masse corporel</h1>
-    <form action="" method="post">
+    <form action="" method="post" class="form_imc">
         <input type="number" placeholder="Entrez votre poid en KG" name="poids">
         <input type="text" placeholder="Entrez votre taille en CM" name="taille">
         <button type="submit" name="calculIMC">Calculer</button>
@@ -39,4 +42,6 @@ require('nav.php');
            }
        }
     ?>
+</div>
 <?php require('footer.php'); ?>
+    

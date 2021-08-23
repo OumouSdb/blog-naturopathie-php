@@ -1,5 +1,7 @@
 <?php
 require('nav.php');
+require('cnx.php');
+
 ?>
     <form action="" method="POST" class="w-50">
   <div class="form-group ">
@@ -16,7 +18,27 @@ require('nav.php');
     <button class="btn btn-primary" type="submit" name="insert">Envoyer</button>
   </div>
 </form>
+<?php
+  if(isset($_GET['id'])){
+    $id= $_GET['id'];
+  }
+   $sql = "SELECT * FROM remede ";
+   $query = $cnx->query($sql);
+   $read = $query->fetchAll();
+   foreach($read as $value){
+     ?>
+     <form style="display: inline;" action="" method="GET">
+       <li><?php echo 'Titre : '.$value['titre'] ?></li>
+       <li><img src="images/<?php echo $value['image'] ?>" alt="" style="width: 100px;"></li>
+       <li><?php echo 'contenu : '.$value['contenu'] ?></li>
+       <a class="btn btn-info" href="update.php?id=<?php echo $value['id'] ?>">Modifier</a>
+       <a class="btn btn-danger" name="supprimer" href="insert.php?id=<?php echo $value['id'] ?>">Supprimer</a>
+       <hr>
+   </form>
 
+     <?php
+   }
+   ?>
     <?php
    if(isset($_POST['insert'])){
    if(isset($_POST['titre']) && isset($_POST['image']) && isset($_POST['contenu'])){
@@ -29,14 +51,18 @@ require('nav.php');
     $query->bindValue(':titre', $titre, PDO::PARAM_STR);
     $query->bindValue(':image', $image, PDO::PARAM_STR);
     $query->bindValue(':contenu', $contenu, PDO::PARAM_STR);
-    
-
     $query->execute();
    }
    }else{
        die('Une erreur est survenue');
    }
-
-    ?>
-</body>
+   if(isset($POST['supprimer'])){
+     $id = $POST['supprimer'];
+    $sql = "DELETE FROM remede WHERE id = $id";
+    $del = $cnx->prepare($sql);
+    $del->bindValue('id', $id, PDO::PARAM_INT);
+    $del->execute();
+   }
+ ?>
+   </body>
 </html>

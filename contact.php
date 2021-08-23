@@ -2,6 +2,8 @@
   <?php
 require('nav.php');
   ?>
+<div class="contact">
+<h1>Contactez nous</h1>
 <form action="contact.php" method="post" class="w-50">
   <div class="form-group">
   <label for="nom">Nom et prenom</label>
@@ -66,7 +68,8 @@ if(isset($_POST['ajouter'])){
 // catch(Exception $e){
 // echo $mail->ErrorInfo;
 // }
+?>
+</div>
+<?php 
 require('footer.php');
 ?>
-
-
