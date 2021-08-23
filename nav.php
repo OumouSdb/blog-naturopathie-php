@@ -18,6 +18,8 @@
         <nav>
             <li><a href="index.php">Accueil</a></li>
             <li><a href="remede.php">Remede naturel</a></li>
+            <li><a href="detox.php">Cure detox</a></li>
+            <li><a href="imc.php">Calcul IMC</a></li>
             <li><a href="contact.php">Contact</a></li>
             <input type="search" placeholder="Maladie, aliment, plante...">
             <button>Rechercher</button>
