@@ -1,4 +1,4 @@
-
+<title>IMC</title>
 <?php
 require('nav.php');
 ?>
@@ -13,20 +13,20 @@ require('nav.php');
     <?php
         function calcul($poids, $taille){
            $evaluation =  floor($poids / ($taille * $taille));
-           echo 'Votre indice de masse corporel est évalué à '.$evaluation.' ';
+           echo '<h3>Votre indice de masse corporel est évalué à '.$evaluation.'</h3> ';
            if($evaluation < 18.5){
             echo 'Insuffisance pondérale';
            }
             else if($evaluation >18.5 && $evaluation < 25){
-                echo ' Corpulence normale';
+                echo '<h3> Corpulence normale</h3>';
             }else if($evaluation >= 25  && $evaluation < 30){
-                echo ' Surpoids';
+                echo '<h3> Surpoids</h3>';
             }else if($evaluation >= 30 && $evaluation < 35){
-                echo ' Obésité moderée';
+                echo '<h3> Obésité moderée</h3>';
             }else if($evaluation >= 35 && $evaluation < 40){
-                echo 'Obésité sevère';
+                echo '<h3>Obésité sevère</h3>';
             }else{
-                echo 'Obésité morbide';
+                echo '<h3>Obésité morbide</h3>';
 
             }
         }

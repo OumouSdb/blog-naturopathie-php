@@ -19,20 +19,27 @@ require('cnx.php');
   </div>
 </form>
 <?php
-  if(isset($_GET['id'])){
-    $id= $_GET['id'];
-  }
+     if(isset($_GET['id'])){ 
+      $id = $_GET['id'];
+        $sql_delete = "DELETE FROM remede WHERE id = $id ";
+        $query_delete = $cnx->prepare($sql_delete);
+        $query_delete->bindValue('id', $id, PDO::PARAM_INT);
+        $query_delete->execute();
+        echo 'Element supprimé';
+
+     }
    $sql = "SELECT * FROM remede ";
    $query = $cnx->query($sql);
    $read = $query->fetchAll();
    foreach($read as $value){
+ 
      ?>
-     <form style="display: inline;" action="" method="GET">
+     <form style="display: inline;" action="" method="GET" class="margin">
        <li><?php echo 'Titre : '.$value['titre'] ?></li>
        <li><img src="images/<?php echo $value['image'] ?>" alt="" style="width: 100px;"></li>
-       <li><?php echo 'contenu : '.$value['contenu'] ?></li>
+       <li><?php echo 'contenu : '.(substr($value["contenu"],0,100)).'...'; ?></li>
        <a class="btn btn-info" href="update.php?id=<?php echo $value['id'] ?>">Modifier</a>
-       <a class="btn btn-danger" name="supprimer" href="insert.php?id=<?php echo $value['id'] ?>">Supprimer</a>
+       <a class="btn btn-danger" name="supprimer" href="?id=<?php echo $value['id'] ?>">Supprimer</a>
        <hr>
    </form>
 
@@ -54,15 +61,9 @@ require('cnx.php');
     $query->execute();
    }
    }else{
-       die('Une erreur est survenue');
+       error_log('Une erreur est survenue');
    }
-   if(isset($POST['supprimer'])){
-     $id = $POST['supprimer'];
-    $sql = "DELETE FROM remede WHERE id = $id";
-    $del = $cnx->prepare($sql);
-    $del->bindValue('id', $id, PDO::PARAM_INT);
-    $del->execute();
-   }
+ 
  ?>
    </body>
 </html>

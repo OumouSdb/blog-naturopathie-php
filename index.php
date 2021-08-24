@@ -12,16 +12,17 @@
 require('nav.php');
 ?>
     <main>
+      <h1>Naturopathie</h1>
         <div class="image_pp">
             <img src="images/alexander-mils-5X8oLkzZ1fI-unsplash.jpg" alt="">
           </div>
-          <h1>Bientôt l'été ? Une cure détox, ça vous tente ?</h1>
+          <h2>Bientôt l'été ? Une cure détox, ça vous tente ?</h2>
     </main>
     <div class=" row col d-flex justify-content-around mx-auto">
 <?php
 require('cnx.php');
 
-$sql = 'SELECT * FROM remede WHERE SUBSTRING(titre, 1,5) = "Detox" ';
+$sql = 'SELECT * FROM remede WHERE SUBSTRING(titre, 1,5) = "Detox" LIMIT 3';
 $query = $cnx->query($sql);
 $read = $query->fetchAll();
 foreach($read as $value){

@@ -16,7 +16,7 @@ footer{
     margin-left: 45%;
     margin-top: 20px;
 }
-h1{
+h1, h2{
     text-align: center;
     font-family: 'Rampart One', cursive;
     color: #ad5938;
@@ -70,3 +70,13 @@ form{
  .form_imc{
     margin-left: 25%;
  }
+ li{
+     list-style-type: none;
+ }
+.question{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.error{
+    margin-left: 30%;
+}

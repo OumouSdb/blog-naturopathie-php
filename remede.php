@@ -1,3 +1,4 @@
+<title>Maladie & Remede</title>
 <?php
 require('nav.php');
 ?>
@@ -12,12 +13,12 @@ require('nav.php');
     foreach($read as $value){
       
     ?>
-   <div class="card" style="width: 18rem;">
+   <div class="card mt-5" style="width: 18rem;">
   <img src="images/<?php echo $value['image'] ?>" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title"><?php echo $value['titre'] ?></h5>
    
-    <p class="card-text"><?php echo (substr($value['contenu'],0,100)) ?></p>
+    <p class="card-text"><?php echo (substr($value['contenu'],0,100)).'...' ?></p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>

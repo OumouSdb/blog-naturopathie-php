@@ -1,3 +1,4 @@
+<title>Detox</title>
 <?php require('nav.php'); ?>
 <div class="row justify-content-around  col-md-8 mx-auto">
     <h1>Les bienfais des cures detox</h1>
@@ -9,7 +10,7 @@ $query = $cnx->query($sql);
 $read = $query->fetchAll();
 foreach($read as $value){ 
     ?>
-<div class="card" style="width: 18rem;">
+<div class="card mt-5" style="width: 18rem;">
   <img src="images/<?php echo $value["image"] ?>" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title"><?php echo $value["titre"] ?></h5>

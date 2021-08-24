@@ -1,3 +1,4 @@
+<title>Contact</title>
 
   <?php
 require('nav.php');
